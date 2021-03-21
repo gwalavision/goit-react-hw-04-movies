@@ -47,7 +47,7 @@ const MoviesPage = (props) => {
       {isLoading ? (
         <Loader type="Oval" color="#00BFFF" height={80} width={80} />
       ) : (
-        <MoviesList movies={movies} />
+        <MoviesList movies={movies} query={value} />
       )}
     </>
   );

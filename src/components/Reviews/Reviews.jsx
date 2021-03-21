@@ -1,6 +1,7 @@
 import { withRouter } from "react-router-dom";
 
-const Reviews = ({ reviews }) => {
+const Reviews = (props) => {
+  const { reviews } = props;
   return (
     <>
       {reviews.length > 0 ? (

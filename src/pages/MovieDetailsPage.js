@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, withRouter } from "react-router-dom";
 import axios from "../axios";
 import { v4 as uuidv4 } from "uuid";
 import Loader from "react-loader-spinner";
 
 import Cast from "../components/Cast";
 import Reviews from "../components/Reviews";
+import MovieCard from "../components/MovieCard";
 
-import noPoster from "../media/no-poster.jpg";
 import routes from "../routes";
+import { createUseStyles } from "react-jss";
 
 const MovieDetailsPage = ({ location, match, history }) => {
   const [movie, setMovie] = useState("");
@@ -16,11 +17,33 @@ const MovieDetailsPage = ({ location, match, history }) => {
   const [reviews, setReviews] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const useStyles = createUseStyles({
+    container: {
+      display: "block",
+      textAlign: "center",
+    },
+
+    link: {
+      fontSize: "20px",
+      textDecoration: "none",
+      color: "#049C95",
+      "&:hover": {
+        color: "#8801D2",
+      },
+    },
+
+    linkActive: {
+      color: "#8801D2",
+    },
+  });
+
+  const styles = useStyles();
+
   const toggleLoader = () => {
     setIsLoading((prevState) => !prevState);
   };
 
-  const goBack = () => {
+  const goBack = (e) => {
     history.push(location?.state?.from || routes.home);
   };
 
@@ -66,57 +89,39 @@ const MovieDetailsPage = ({ location, match, history }) => {
     }
     getReviews();
   }, [movieId]);
-  console.log(location);
   return (
     <>
       {isLoading ? (
         <Loader type="Oval" color="#00BFFF" height={80} width={80} />
       ) : (
         <>
-          <section>
-            <button type="button" onClick={goBack}>
-              Go back
-            </button>
-            {movie.poster_path && (
-                <img
-                  src={noPoster}
-                  width={300}
-                  alt={movie.title ? movie.title : movie.name}
-                />
-              ) && (
-                <img
-                  src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                  alt={movie.title ? movie.title : movie.name}
-                />
-              )}
-
-            <h2>{movie.title ? movie.title : movie.name}</h2>
-            {movie.vote_average && (
-              <p>
-                User score:
-                <span>{movie.vote_average * 10}&#37;</span>
-              </p>
-            )}
-
-            <h3>Overview</h3>
-            <p>{movie.overview}</p>
-            <h3>Genres</h3>
-            {movie.genres && (
-              <p>
-                {movie.genres.map((genre) => (
-                  <span key={genre.id}>{genre.name}</span>
-                ))}
-              </p>
-            )}
-          </section>
-          <section>
+          <MovieCard onClick={goBack} movie={movie && movie} />
+          <section className={styles.container}>
             <h3>Additional information</h3>
             <ul>
               <li key={uuidv4()}>
-                <NavLink to={`${match.url}/cast`}>Cast</NavLink>
+                <NavLink
+                  to={{
+                    pathname: `${match.url}/cast`,
+                    state: location.state,
+                  }}
+                  className={styles.link}
+                  activeClassName={styles.linkActive}
+                >
+                  Cast
+                </NavLink>
               </li>
               <li key={uuidv4()}>
-                <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
+                <NavLink
+                  to={{
+                    pathname: `${match.url}/reviews`,
+                    state: location.state,
+                  }}
+                  className={styles.link}
+                  activeClassName={styles.linkActive}
+                >
+                  Reviews
+                </NavLink>
               </li>
             </ul>
 
@@ -136,4 +141,4 @@ const MovieDetailsPage = ({ location, match, history }) => {
   );
 };
 
-export default MovieDetailsPage;
+export default withRouter(MovieDetailsPage);
