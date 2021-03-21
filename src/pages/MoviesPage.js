@@ -4,11 +4,21 @@ import Searchbar from "../components/Searchbar";
 import { withRouter } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import MoviesList from "../components/MoviesList";
+import { createUseStyles } from "react-jss";
 
 const MoviesPage = (props) => {
   const [value, setValue] = useState("");
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const useStyles = createUseStyles({
+    container: {
+      display: "block",
+      textAlign: "center",
+    },
+  });
+
+  const styles = useStyles();
 
   const toggleLoader = () => {
     setIsLoading((prevState) => !prevState);
@@ -37,7 +47,7 @@ const MoviesPage = (props) => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <Searchbar
         onChange={handleChange}
         onSubmit={handleSubmit}
@@ -45,11 +55,11 @@ const MoviesPage = (props) => {
       />
 
       {isLoading ? (
-        <Loader type="Oval" color="#00BFFF" height={80} width={80} />
+        <Loader type="Oval" color="#049C95" height={80} width={80} />
       ) : (
         <MoviesList movies={movies} query={value} />
       )}
-    </>
+    </div>
   );
 };
 

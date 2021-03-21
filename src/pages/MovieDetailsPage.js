@@ -90,9 +90,9 @@ const MovieDetailsPage = ({ location, match, history }) => {
     getReviews();
   }, [movieId]);
   return (
-    <>
+    <div className={styles.container}>
       {isLoading ? (
-        <Loader type="Oval" color="#00BFFF" height={80} width={80} />
+        <Loader type="Oval" color="#049C95" height={80} width={80} />
       ) : (
         <>
           <MovieCard onClick={goBack} movie={movie && movie} />
@@ -137,7 +137,7 @@ const MovieDetailsPage = ({ location, match, history }) => {
           </section>
         </>
       )}
-    </>
+    </div>
   );
 };
 
