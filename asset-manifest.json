@@ -1,0 +1,31 @@
+{
+  "files": {
+    "static/js/0.32ce0d0f.chunk.js": "/goit-react-hw-04-movies/static/js/0.32ce0d0f.chunk.js",
+    "static/js/0.32ce0d0f.chunk.js.map": "/goit-react-hw-04-movies/static/js/0.32ce0d0f.chunk.js.map",
+    "home-page.js": "/goit-react-hw-04-movies/static/js/home-page.23ce561b.chunk.js",
+    "home-page.js.map": "/goit-react-hw-04-movies/static/js/home-page.23ce561b.chunk.js.map",
+    "main.css": "/goit-react-hw-04-movies/static/css/main.252274e0.chunk.css",
+    "main.js": "/goit-react-hw-04-movies/static/js/main.43770109.chunk.js",
+    "main.js.map": "/goit-react-hw-04-movies/static/js/main.43770109.chunk.js.map",
+    "movie-details--page.css": "/goit-react-hw-04-movies/static/css/movie-details--page.7eceed7f.chunk.css",
+    "movie-details--page.js": "/goit-react-hw-04-movies/static/js/movie-details--page.740bff8b.chunk.js",
+    "movie-details--page.js.map": "/goit-react-hw-04-movies/static/js/movie-details--page.740bff8b.chunk.js.map",
+    "movies-page.js": "/goit-react-hw-04-movies/static/js/movies-page.268ffcf4.chunk.js",
+    "movies-page.js.map": "/goit-react-hw-04-movies/static/js/movies-page.268ffcf4.chunk.js.map",
+    "runtime-main.js": "/goit-react-hw-04-movies/static/js/runtime-main.c7171f16.js",
+    "runtime-main.js.map": "/goit-react-hw-04-movies/static/js/runtime-main.c7171f16.js.map",
+    "static/js/6.9f573cee.chunk.js": "/goit-react-hw-04-movies/static/js/6.9f573cee.chunk.js",
+    "static/js/6.9f573cee.chunk.js.map": "/goit-react-hw-04-movies/static/js/6.9f573cee.chunk.js.map",
+    "index.html": "/goit-react-hw-04-movies/index.html",
+    "static/css/main.252274e0.chunk.css.map": "/goit-react-hw-04-movies/static/css/main.252274e0.chunk.css.map",
+    "static/css/movie-details--page.7eceed7f.chunk.css.map": "/goit-react-hw-04-movies/static/css/movie-details--page.7eceed7f.chunk.css.map",
+    "static/js/6.9f573cee.chunk.js.LICENSE.txt": "/goit-react-hw-04-movies/static/js/6.9f573cee.chunk.js.LICENSE.txt",
+    "static/media/No-Photo-Available.8e7315f8.jpg": "/goit-react-hw-04-movies/static/media/No-Photo-Available.8e7315f8.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c7171f16.js",
+    "static/js/6.9f573cee.chunk.js",
+    "static/css/main.252274e0.chunk.css",
+    "static/js/main.43770109.chunk.js"
+  ]
+}
